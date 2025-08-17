@@ -81,9 +81,9 @@ jobs:
           commit_message: "🔄 自动同步 Worker 版本: ${{ steps.check_update.outputs.tag_name || '未知' }}"
           commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
            
-      - name: Delete Auto Update Worker workflow runs
-        uses: Mattraks/delete-workflow-runs@v2
+      - name: Clean old workflows
+        uses: some/action@v1
         with:
           retain_days: 3              # 只保留3天内的
           keep_minimum_runs: 2        # 至少保留2个
-          workflow_name: Auto Update Worker  # 指定要处理的workflow名称（必须和实际workflow名字完全一致）
+          delete_workflow_pattern: Auto Update Worker  # 指定要处理的workflow名称（必须和实际workflow名字完全一致）

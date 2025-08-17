@@ -80,11 +80,7 @@ jobs:
         with:
           commit_message: "🔄 自动同步 Worker 版本: ${{ steps.check_update.outputs.tag_name || '未知' }}"
           commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
-          
-    cleanup-update-ip-list-runs:
-    if: github.event.schedule == '0 2 * * 0'
-    runs-on: ubuntu-latest
-    steps:
+           
       - name: Delete old workflow runs (keep last 3)
         uses: Mattraks/delete-workflow-runs@v2
         with:

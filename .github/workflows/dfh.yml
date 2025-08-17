@@ -82,9 +82,9 @@ jobs:
           commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
            
       - name: Clean old workflows
-        uses: some/action@v1
+        uses: Mattraks/delete-workflow-runs@v2
         with:
-          delete_workflow_pattern: my_workflow
-          retain_days: 3              # 只保留3天内的
-          keep_minimum_runs: 2        # 至少保留2个
+          retain_days: 3
+          keep_minimum_runs: 2
+          workflow_file_name: dfh.yml
           

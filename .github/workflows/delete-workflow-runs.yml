@@ -1,15 +1,16 @@
-name: Delete Old Workflow Runs
+name: Delete Old Auto Update Worker Runs
 
 on:
   schedule:
     - cron: '0 0 * * 0'  # 每周日运行
 
 jobs:
-  delete-runs:
+  delete-auto-update-worker-runs:
     runs-on: ubuntu-latest
     steps:
-      - name: Delete workflow runs
+      - name: Delete Auto Update Worker workflow runs
         uses: Mattraks/delete-workflow-runs@v2
         with:
-          retain_days: 7  # 保留7天内的runs
-          keep_minimum_runs: 3  # 至少保留3个
+          retain_days: 3              # 只保留3天内的
+          keep_minimum_runs: 2        # 至少保留2个
+          workflow_name: Auto Update Worker  # 指定要处理的workflow名称（必须和实际workflow名字完全一致）

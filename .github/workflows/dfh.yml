@@ -86,5 +86,6 @@ jobs:
         with:
           retain_days: 3
           keep_minimum_runs: 2
-          workflow_file_name: dfh.yml
+          workflow_file_name: dfh
+          token: ${{ secrets.GITHUB_TOKEN }}
           

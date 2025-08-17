@@ -86,6 +86,6 @@ jobs:
         with:
           retain_days: 3
           keep_minimum_runs: 2
-          workflow_file_name: dfh
+          workflow_file_name: Auto Update Worker
           token: ${{ secrets.GITHUB_TOKEN }}
           

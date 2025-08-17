@@ -15,8 +15,7 @@ on:
 
 permissions:
   contents: write
-  actions: write
-
+  
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -82,11 +81,3 @@ jobs:
           commit_message: "🔄 自动同步 Worker 版本: ${{ steps.check_update.outputs.tag_name || '未知' }}"
           commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
            
-      - name: Clean old workflows
-        uses: Mattraks/delete-workflow-runs@v2
-        with:
-          retain_days: 3
-          keep_minimum_runs: 2
-          workflow_file_name: dfh.yml
-          token: ${{ secrets.PAT }}
-          

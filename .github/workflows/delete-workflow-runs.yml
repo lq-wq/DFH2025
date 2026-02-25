@@ -1,17 +1,19 @@
-name: Delete Old Auto Update Worker Runs
-
+name: Cleanup Old Workflow Runs
 on:
   schedule:
-    - cron: '0 0 * * 0'  # 每周日运行
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
+
+permissions:
+  actions: write
 
 jobs:
-  delete-auto-update-worker-runs:
+  cleanup:
     runs-on: ubuntu-latest
     steps:
-      - name: Clean old workflows
+      - name: Delete old workflow runs
         uses: Mattraks/delete-workflow-runs@v2
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           retain_days: 3
           keep_minimum_runs: 2
-          token: ${{ secrets.PAT }}
-          workflow_file_name: dfh.yml
